@@ -9,28 +9,9 @@ def index(request):
     context = {'latest_question_list': latest_question_list}
     return render(request, 'polls/index.html', context)
 
-    # display content using from django.template import loader :
-    # template = loader.get_template("polls/index.html")
-    # context = {
-    #     'latest_question_list' : latest_question_list
-    # }
-    # return HttpResponse(template.render(context, request))
-
-    # display content without format
-    # output = ', '.join([q.question_text for q in latest_question_list]);
-    # return HttpResponse(output);
-
 def detail(request, question_id):
-    # Method 2
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/detail.html', {'question': question})
-
-    # Method 1
-    # try:
-    #     question = Question.objects.get(pk=question_id)
-    # except Question.DoesNotExist:
-    #     raise Http404("Question does not exist")
-    # return render(request, 'polls/detail.html', {'question': question})
 
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)

@@ -2,6 +2,26 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 from .models import Question, Choice
+from rest_framework import viewsets
+from rest_framework import permissions
+from .serializers import QuestionSerializer, ChoiceSerializer
+
+class QuestionViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Question.objects.all()
+    serializer_class = QuestionSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+class ChoiceViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Choice.objects.all()
+    serializer_class = ChoiceSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
 
 # Create your views here.
 def index(request):

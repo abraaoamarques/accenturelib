@@ -1,7 +1,7 @@
 from django.contrib.admin import site
 from django.contrib import admin
 import adminactions.actions as actions
-from .models import Book, Autor, Editora, Categoria
+from .models import Book, Autor, Editora, Categoria, Comment, Rate
 
 # Register your models here.
 
@@ -24,4 +24,6 @@ admin.site.register(Book, BookAdmin)
 admin.site.register(Autor, AutorAdmin)
 admin.site.register(Editora, EditoraAdmin)
 admin.site.register(Categoria, CategoriaAdmin)
+admin.site.register(Comment)
+admin.site.register(Rate)
 actions.add_to_site(site)

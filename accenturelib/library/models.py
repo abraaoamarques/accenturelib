@@ -32,3 +32,18 @@ class Categoria(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Comment(models.Model):
+    book_id = models.ForeignKey("Book", on_delete=models.DO_NOTHING)
+    rate = models.ForeignKey("Rate", on_delete=models.DO_NOTHING)
+    comment = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.comment
+
+class Rate(models.Model):
+    rate = models.CharField(max_length=1)
+
+    def __str__(self):
+        return self.rate

@@ -26,6 +26,7 @@ router.register(r'questions', PoolViews.QuestionViewSet)
 router.register(r'choices', PoolViews.ChoiceViewSet)
 
 urlpatterns = [
+    path(r'^adminactions/', include('adminactions.urls')),
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
     path('library/', include('library.urls')),

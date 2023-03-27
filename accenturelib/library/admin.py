@@ -2,7 +2,6 @@ from django.contrib.admin import site
 from django.contrib import admin
 import adminactions.actions as actions
 from .models import Book, Autor, Editora, Categoria, Comment, Rate
-
 # Register your models here.
 
 class BookAdmin(admin.ModelAdmin):
